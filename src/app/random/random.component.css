@@ -1,0 +1,16 @@
+body {
+    background-image: url('../../assets/Byenior2019.png');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#box {}
+
+#number {
+    text-align: center;
+    margin: 13% 40% 0 40%;
+    color: rgb(235, 226, 226);
+    font-size: 360px;
+}

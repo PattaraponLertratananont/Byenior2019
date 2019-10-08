@@ -1,0 +1,24 @@
+body {
+    background-image: url('../../assets/Byenior2019.png');
+    height: 100%;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div {
+    text-align: center;
+    width: 100%;
+    margin-top: 15%;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+}
+
+#txtConfirm {
+    font-size: 25px;
+    color: #ffffff;
+}

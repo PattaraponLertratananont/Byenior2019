@@ -1,0 +1,26 @@
+#box {
+    background: white;
+    max-width: 400px;
+    margin: 10% auto 16px;
+    padding: 32px 24px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.formAdd {
+    margin: 10px;
+    height: 25px;
+    width: 70%;
+}
+
+#container {
+    padding-top: 1%;
+}
+
+body {
+    background-image: url('../../assets/Byenior2019.png');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

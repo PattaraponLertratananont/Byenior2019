@@ -1,0 +1,38 @@
+#box {
+    background: white;
+    max-width: 320px;
+    margin: auto;
+    padding: 32px 24px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+#stuid {
+    width: 100%;
+    height: 30px;
+    margin-right: 5%;
+    margin-top: 10%;
+}
+
+#topic {
+    text-align: center;
+}
+
+#button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#container {
+    margin: 10% auto;
+}
+
+body {
+    background-image: url('../../assets/Byenior2019.png');
+    height: 100%;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,13 @@
+<body>
+    <div id="container">
+        <div id="box">
+            <div id="logo">
+                <img height="160px" src="../../assets/logoET.png">
+            </div>
+            <h3 id="topic">ลงทะเบียนเข้างาน<br>"ET Funlight 2019"</h3>
+            <input type="text" [formControl]="stuid" id="stuid" (click)="removeMesg()" placeholder="รหัสนักศึกษา" maxlength="10" required>
+            <button mat-raised-button color="primary" id="button" type="submit" (click)="UpdateRecord(stuid.value) + GetRecord()" [disabled]="!stuid.valid">ลงทะเบียน</button>
+            <p>{{success}}</p>
+        </div>
+    </div>
+</body>

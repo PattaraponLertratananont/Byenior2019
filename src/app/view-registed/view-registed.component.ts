@@ -9,17 +9,16 @@ import { StudentService } from '../student.service';
 export class ViewRegistedComponent implements OnInit {
   
   students:DATA[]
-  displayedColumns = ['id', 'name', 'stuid', 'degree'];
+  displayedColumns = ['name', 'stuid', 'degree'];
   dataSource = []
   count = 1
-
+  total : number
   constructor(private stuService : StudentService) { }
 
   ngOnInit() {
     this.stuService.readRegisted().subscribe(data => {
       this.students = data.map(e => {
         return {
-          id: e.payload.doc.data()['id'],
           stuid: e.payload.doc.data()['stuid'],
           degree: e.payload.doc.data()['degree'],
           name: e.payload.doc.data()['name'],
@@ -27,12 +26,11 @@ export class ViewRegistedComponent implements OnInit {
         };
       })
       this.dataSource = this.students
-      console.log(this.dataSource)
+      this.total = this.students.length
     });
   }
 }
 export interface DATA {
-  id: number;
   stuid: string;
   degree: string;
   name: string;

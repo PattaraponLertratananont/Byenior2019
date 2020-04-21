@@ -1,7 +1,11 @@
 <body>
     <div>
-        <img height="160px" src="../../assets/logoET.png">
-        <p>คุณ{{name}} {{stuid}}</p>
-        <p id="txtConfirm">ลงทะเบียนสำเร็จ</p>
+        <img width="30%" src="../../assets/checked.png">
+        <div>
+            <button class="myButton">ลงทะเบียนสำเร็จ</button>
+        </div>
+        <p id="txtWelcome">{{txtwelcome}}</p>
+        <p>คุณ{{name}} สาขา {{major}} {{degree}}</p>
+        <img [src]="srcImg" id="img" aria-haspopup="true">
     </div>
 </body>

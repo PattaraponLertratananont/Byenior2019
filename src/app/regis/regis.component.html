@@ -1,12 +1,14 @@
 <body>
     <div id="container">
+        <div id="logo">
+            <img width="70%" src="../../assets/postcardfront.png">
+            <!-- <img height="160px" src="../../assets/logo.jpg"> -->
+        </div>
         <div id="box">
-            <div id="logo">
-                <img height="160px" src="../../assets/logoET.png">
-            </div>
-            <h3 id="topic">ลงทะเบียนเข้างาน<br>"ET Funlight 2019"</h3>
+            <span id="topic">ลงทะเบียนเข้าร่วมงาน</span>
             <input type="text" [formControl]="stuid" id="stuid" (click)="removeMesg()" placeholder="รหัสนักศึกษา" maxlength="10" required>
-            <button mat-raised-button color="primary" id="button" type="submit" (click)="UpdateRecord(stuid.value) + GetRecord()" [disabled]="!stuid.valid">ลงทะเบียน</button>
+            <span style="float: left; padding-top: 10px;">{{name}}</span>
+            <button mat-raised-button color="primary" id="button" type="submit" (click)="GetRecord(stuid.value)" [disabled]="!stuid.valid">ลงทะเบียน</button>
             <p>{{success}}</p>
         </div>
     </div>

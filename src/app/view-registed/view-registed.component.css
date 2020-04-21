@@ -8,11 +8,11 @@
 }
 
 #container {
-    padding-top: 12%;
+    padding-top: 5%;
 }
 
 body {
-    background-image: url('../../assets/Byenior2019.png');
+    background-image: url('../../assets/Byenior2019.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,4 +29,24 @@ body {
 table {
     margin: 0 auto;
     width: 100%;
+}
+
+.txtTop,
+.txtBot {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.txtCell {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: #ffffff;
+    text-align: center;
 }

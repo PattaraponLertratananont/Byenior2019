@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
 import { StudentService } from '../student.service';
 import { Router } from '@angular/router';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-regis',
@@ -17,22 +18,48 @@ export class RegisComponent implements OnInit {
   ]);
   students : any[]
   success = ""
-  count = 0;
-  
+  count = 1;
+  name : string
+  gg : any[]
   constructor(
     private stuService: StudentService,
     private router: Router
     ) { }
   
   ngOnInit(){
+    // this.stuService.readAllStudents().subscribe(data=>{
+    //   if(data.length > 0){
+    //     this.gg = data.map(e=>{
+    //       return {
+    //         id: e.payload.doc.id,
+    //         stuid: e.payload.doc.data()['stuid'],
+    //         degree: e.payload.doc.data()['degree'],
+    //         name: e.payload.doc.data()['name'],
+    //         status: e.payload.doc.data()['status'],
+    //       }
+    //     })
+    //   }
+    //   this.stuid.valueChanges.subscribe(data=>{
+    //     var keep:string
+    //     for (let i = 0; i < this.gg.length; i++) {
+    //       if(data == this.gg[i].stuid){
+    //         keep = 'คุณ'+this.gg[i].name;
+    //         break
+    //       }else{
+    //         // keep = 'รหัสไม่ถูกต้อง กรุณากรอกใหม่'
+    //       }
+    //     }
+    //     this.name = keep
+    //   })
+    // });
   }
 
   removeMesg(){
     this.success = '';
   }
   
-  GetRecord() {
-    this.stuService.readStudents(this.stuid.value).subscribe(data => {
+  GetRecord(stuid:string) {
+    this.stuService.readStudents(stuid).subscribe(data => {
       if(data.length > 0){
         this.students = data.map(e => {
           return {
@@ -43,28 +70,33 @@ export class RegisComponent implements OnInit {
             status: e.payload.doc.data()['status'],
           };
         })
-        this.success = 'ยินดีต้อนรับ คุณ' + this.students[0].name;
-        this.stuid.setValue('');
-        this.stuid.disable();
-        this.router.navigate(['/confirm',{name: this.students[0].name, stuid: this.students[0].stuid, degree: this.students[0].degree}])
+        if(this.students[0].status == true){
+          this.success = 'คุณได้ลงทะเบียนแล้ว'
+          this.stuid.setValue('');
+          this.stuid.disable();
+        }else{
+          this.Update(stuid)
+          this.success = 'ยินดีต้อนรับ คุณ' + this.students[0].name;
+          this.stuid.setValue('');
+          this.stuid.disable();
+          this.router.navigate(['/confirm',{name: this.students[0].name, stuid: this.students[0].stuid, degree: this.students[0].degree}])
+        }
       }else{
-        this.success = 'ไม่มีนักศึกษาในระบบ'
+        this.success = 'ไม่มีชื่อในระบบ'
         this.stuid.setValue('');
       }
-      console.log(this.students)
     });
   }
-  UpdateRecord(stuid:string) {
-    this.stuService.getCount().subscribe(
-      (data) =>{
-        this.count = data.payload.data()['count']
-        this.count = this.count +1;
-        console.log('count', this.count);
-    });
-    this.Update(stuid)
-  }
+  // UpdateRecord(stuid:string) {
+  //   this.stuService.getCount().subscribe(
+  //     (data) =>{
+  //       this.count = data.payload.data()['count']
+  //       this.count = this.count +1;
+  //       console.log('count', this.count);
+  //   });
+  //   this.Update(stuid)
+  // }
   Update(stuid:string){
-    this.stuService.updateStudent(this.count, stuid);
-    this.stuService.updateCount(this.count);
+    this.stuService.updateStudent(stuid);
   }
 }
